@@ -26,27 +26,31 @@ def get_state_dict(checkpoint_path):
 
 def tn2np(t, inv_fn=None): return (inv_fn(t) * 255).detach().cpu().permute(1,2,0).numpy().astype(np.uint8) if inv_fn is not None else (t * 255).detach().cpu().permute(1,2,0).numpy().astype(np.uint8)
 
-def get_preds(model, test_dl, device):
+def get_preds(model, test_dl, device, ims_limit = 1000):
     model.eval()
     print("Start inference...")
     
-    all_ims, all_preds, all_gts, acc = [], [], [], 0
+    # all_ims, all_preds, all_gts, acc = [], [], [], 0
+    all_ims, all_preds, acc = [], [], 0
     start_time = time()
     for idx, batch in tqdm(enumerate(test_dl)):
-        if idx == 100: break
-        ims, gts = batch
-        all_ims.extend(ims); all_gts.extend(gts);        
+        if idx == ims_limit: break
+        # ims, gts = batch
+        ims = batch[0]
+        all_ims.extend(ims); 
         preds = model(ims.to(device))
         pred_clss = torch.argmax(preds.data, dim = 1)
         all_preds.extend(pred_clss)
-        acc += (pred_clss == gts.to(device)).sum().item()
+        # acc += (pred_clss == gts.to(device)).sum().item()
         
     print(f"Inference is completed in {(time() - start_time):.3f} secs!")
-    print(f"Accuracy of the model is {acc / len(test_dl.dataset) * 100:.3f}%")
+    # print(f"Accuracy of the model is {acc / len(test_dl.dataset) * 100:.3f}%")
     
-    return all_ims, all_preds, all_gts
+    # return all_ims, all_preds, all_gts
+    return all_ims, all_preds
     
-def visualize(all_ims, all_preds, all_gts, num_ims, rows, cls_names, save_path, save_name):
+# def visualize(all_ims, all_preds, all_gts, num_ims, rows, cls_names, save_path, save_name):
+def visualize(all_ims, all_preds, num_ims, rows, cls_names, save_path, save_name):
     
     print("Start visualization...")
     plt.figure(figsize = (20, 20))
@@ -55,13 +59,14 @@ def visualize(all_ims, all_preds, all_gts, num_ims, rows, cls_names, save_path, 
     for idx, ind in enumerate(indices):
         
         im = all_ims[ind]
-        gt = all_gts[ind].item()
+        # gt = all_gts[ind].item()
         pr = all_preds[ind].item()
         
         plt.subplot(rows, num_ims // rows, idx + 1)
         plt.imshow(tn2np(im, inv_fn = inv_fn))
         plt.axis("off")
-        plt.title(f"GT: {list(cls_names.keys())[gt]} | Pred: {list(cls_names.keys())[pr]}")
+        # plt.title(f"GT: {list(cls_names.keys())[gt]} | Pred: {list(cls_names.keys())[pr]}")
+        plt.title(f"Pred: {list(cls_names.keys())[pr]}")
     
     plt.savefig(f"{save_path}/{save_name}_preds.png")
     print(f"The visualization can be seen in {save_path} directory.")
