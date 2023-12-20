@@ -9,10 +9,10 @@ torch.manual_seed(2023)
 
 class CustomDataset(Dataset):
     
-    def __init__(self, root, transformations = None):
+    def __init__(self, root, data, transformations = None):
         
         self.transformations = transformations
-        self.im_paths = [im_path for im_path in sorted(glob(f"{root}/*/*")) if "jpg" in im_path]
+        self.im_paths = [im_path for im_path in sorted(glob(f"{root}/{data}/*/*"))]
         
         self.cls_names, self.cls_counts, count, data_count = {}, {}, 0, 0
         for idx, im_path in enumerate(self.im_paths):
@@ -33,15 +33,13 @@ class CustomDataset(Dataset):
         if self.transformations is not None: im = self.transformations(im)
         
         return im, gt
-
-def get_dls(root, transformations, bs, split = [0.8, 0.1, 0.1], ns = 4):
     
-    ds = CustomDataset(root = root, transformations = transformations)
-    ds_len = len(ds)
-    tr_len = int(ds_len * split[0]); val_len = int(ds_len * split[1]); ts_len = ds_len - tr_len - val_len
+def get_dls(root, transformations, bs, split = [0.9, 0.05], ns = 4):
     
-    tr_ds, val_ds, ts_ds = random_split(ds, [tr_len, val_len, ts_len])
+    tr_ds = CustomDataset(root = root, data = "train", transformations = transformations)
+    vl_ds = CustomDataset(root = root, data = "val", transformations = transformations)
+    ts_ds = CustomDataset(root = root, data = "test", transformations = transformations)
     
-    tr_dl, val_dl, ts_dl = DataLoader(tr_ds, batch_size = bs, shuffle = True, num_workers = ns), DataLoader(val_ds, batch_size = bs, shuffle = False, num_workers = ns), DataLoader(ts_ds, batch_size = 1, shuffle = False, num_workers = ns)
+    tr_dl, val_dl, ts_dl = DataLoader(tr_ds, batch_size = bs, shuffle = True, num_workers = ns), DataLoader(vl_ds, batch_size = bs, shuffle = False, num_workers = ns), DataLoader(ts_ds, batch_size = 1, shuffle = False, num_workers = ns)
     
-    return tr_dl, val_dl, ts_dl, ds.cls_names
+    return tr_dl, val_dl, ts_dl, tr_ds.cls_names
