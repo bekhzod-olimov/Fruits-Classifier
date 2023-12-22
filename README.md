@@ -19,6 +19,30 @@ Then activate the environment using the following command:
 conda activate speed
 ```
 
+3. Data Visualization
+
+![image](https://github.com/bekhzod-olimov/Fruits-Classifier/assets/50166164/05a2256c-0685-4051-a83e-470f95b563ea)
+
+4. Train the AI model using the following script:
+
+a) PyTorch training:
+
+```python
+python main.py --root PATH_TO_THE_DATA --batch_size = 64 device = "cuda:0" --train_framework "py"
+```
+The training parameters can be changed using the following information:
+
+![image](https://github.com/bekhzod-olimov/SportsImageClassification/assets/50166164/d6ef5b40-b792-4654-ae23-f1259a01c7f7)
+
+The training process progress:
+
+![image](https://github.com/bekhzod-olimov/SportsImageClassification/assets/50166164/7a142c81-9f78-4348-a1ff-8efc5d01e7b9)
+
+b) PyTorch Lightning training:
+
+```python
+python main.py --root PATH_TO_THE_DATA --batch_size = 64 device = "cuda:0" --train_framework "pl"
+```
 
 [Demo](http://218.38.14.20:8502/): 
 ![image](https://github.com/bekhzod-olimov/Fruits-Classifier/assets/50166164/bb81d826-7b18-43cf-a670-3710621c0cd9)
