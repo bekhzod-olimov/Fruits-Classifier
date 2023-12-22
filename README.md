@@ -50,7 +50,7 @@ Use [DrawLearningCurves](https://github.com/bekhzod-olimov/Fruits-Classifier/blo
 
 * Train and validation loss curves:
   
-![loss_learning_curves](https://github.com/bekhzod-olimov/SportsImageClassification/assets/50166164/f1d20ff2-62bf-4514-af00-e5b5a225f57a)
+![loss_learning_curves](https://github.com/bekhzod-olimov/Fruits-Classifier/assets/50166164/6ab7ab0e-1ed3-48aa-b509-114afff14a9c)
 
 * Train and validation accuracy curves:
   
