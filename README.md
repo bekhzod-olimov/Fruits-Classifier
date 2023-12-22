@@ -36,7 +36,7 @@ The training parameters can be changed using the following information:
 
 The training process progress:
 
-![image](https://github.com/bekhzod-olimov/SportsImageClassification/assets/50166164/7a142c81-9f78-4348-a1ff-8efc5d01e7b9)
+![image](https://github.com/bekhzod-olimov/Fruits-Classifier/assets/50166164/a5306179-bb94-4477-b380-49b67d37a7c7)
 
 b) PyTorch Lightning training:
 
