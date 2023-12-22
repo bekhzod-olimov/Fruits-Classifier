@@ -44,6 +44,18 @@ b) PyTorch Lightning training:
 python main.py --root PATH_TO_THE_DATA --batch_size = 64 device = "cuda:0" --train_framework "pl"
 ```
 
+5. Learning curves:
+   
+Use [DrawLearningCurves](https://github.com/bekhzod-olimov/Fruits-Classifier/blob/a4319e9403d7f3263a08921cfbcbb0acf38d287e/main.py#L91C13-L91C13) class to plot and save learning curves.
+
+* Train and validation loss curves:
+  
+![loss_learning_curves](https://github.com/bekhzod-olimov/SportsImageClassification/assets/50166164/f1d20ff2-62bf-4514-af00-e5b5a225f57a)
+
+* Train and validation accuracy curves:
+  
+![acc_learning_curves](https://github.com/bekhzod-olimov/SportsImageClassification/assets/50166164/ca0b9c2f-94cf-4d1e-bb53-c39d9aeb335b)
+
 [Demo](http://218.38.14.20:8502/): 
 ![image](https://github.com/bekhzod-olimov/Fruits-Classifier/assets/50166164/bb81d826-7b18-43cf-a670-3710621c0cd9)
 
