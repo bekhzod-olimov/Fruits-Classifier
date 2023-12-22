@@ -54,7 +54,7 @@ Use [DrawLearningCurves](https://github.com/bekhzod-olimov/Fruits-Classifier/blo
 
 * Train and validation accuracy curves:
   
-![acc_learning_curves](https://github.com/bekhzod-olimov/SportsImageClassification/assets/50166164/ca0b9c2f-94cf-4d1e-bb53-c39d9aeb335b)
+![acc_learning_curves](https://github.com/bekhzod-olimov/Fruits-Classifier/assets/50166164/e93ed187-9537-444b-8d83-92628b203179)
 
 [Demo](http://218.38.14.20:8502/): 
 ![image](https://github.com/bekhzod-olimov/Fruits-Classifier/assets/50166164/bb81d826-7b18-43cf-a670-3710621c0cd9)
