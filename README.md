@@ -62,6 +62,5 @@ Use [DrawLearningCurves](https://github.com/bekhzod-olimov/Fruits-Classifier/blo
 streamlit run demo.py
 ```
 
-[Demo](http://218.38.14.20:8502/): 
+7. [Demo](http://218.38.14.20:8502/): 
 ![image](https://github.com/bekhzod-olimov/Fruits-Classifier/assets/50166164/bb81d826-7b18-43cf-a670-3710621c0cd9)
-
