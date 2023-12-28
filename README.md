@@ -56,11 +56,19 @@ Use [DrawLearningCurves](https://github.com/bekhzod-olimov/Fruits-Classifier/blo
   
 ![acc_learning_curves](https://github.com/bekhzod-olimov/Fruits-Classifier/assets/50166164/d4d2817f-44f3-44ec-adf9-2ce90846e940)
 
-6. Run Demo
+7. Inference Results (Predictions):
+
+![sports_preds](https://github.com/bekhzod-olimov/SportsImageClassification/assets/50166164/317e28a8-1e85-447d-8ed4-f3b41c880ca7)
+
+8. Inference Results (GradCAM):
+   
+![fruits_gradcam](https://github.com/bekhzod-olimov/Fruits-Classifier/assets/50166164/7c2d910a-8027-475e-9696-dca6962203c3)
+
+9. Run Demo
 
 ```python
 streamlit run demo.py
 ```
 
-7. [Demo](http://218.38.14.20:8502/): 
+10. [Demo](http://218.38.14.20:8502/): 
 ![image](https://github.com/bekhzod-olimov/Fruits-Classifier/assets/50166164/bb81d826-7b18-43cf-a670-3710621c0cd9)
