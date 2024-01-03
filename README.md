@@ -23,6 +23,16 @@ Then activate the environment using the following command:
 conda activate speed
 ```
 
+b) Create a virtual environment using txt file:
+
+- Create a virtual environment:
+
+```python
+conda create -n speed python=3.9
+```
+
+
+
 
 
 3. Data Visualization
