@@ -23,24 +23,15 @@ Then activate the environment using the following command:
 conda activate speed
 ```
 
-b) Create a virtual environment using txt file:
-
-- Create a virtual environment:
+b) Create a virtual environment using yml file:
 
 ```python
-conda create -n speed python=3.9
+conda env create -f environment.yml
 ```
 
-- Activate the environment using the following command:
-
+Then activate the environment using the following command:
 ```python
 conda activate speed
-```
-
-- Install libraries from the text file:
-
-```python
-pip install -r requirements.txt
 ```
 
 3. Data Visualization
