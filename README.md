@@ -12,15 +12,24 @@ git clone https://github.com/bekhzod-olimov/Fruits-Classifier.git
 
 2. Create conda environment from yml file using the following script:
 
-a) Create a virtual environment using yml file:
+a) Create a virtual environment using txt file:
+
+- Create a virtual environment:
 
 ```python
-conda env create -f environment.yml
+conda create -n speed python=3.9
 ```
 
-Then activate the environment using the following command:
+- Activate the environment using the following command:
+
 ```python
 conda activate speed
+```
+
+- Install libraries from the text file:
+
+```python
+pip install -r requirements.txt
 ```
 
 b) Create a virtual environment using yml file:
