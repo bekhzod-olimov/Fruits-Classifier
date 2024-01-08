@@ -1,6 +1,6 @@
+# Import libraries
 import torch, yaml, os, pickle, timm, argparse
-from utils import get_state_dict, get_preds, visualize, grad_cam
-from glob import glob
+from utils import get_state_dict, get_preds, visualize, grad_cam; from glob import glob
 
 def run(args):
     
