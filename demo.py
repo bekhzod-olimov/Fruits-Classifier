@@ -1,6 +1,5 @@
 # Import libraries
-import torch, pickle, timm, argparse
-import streamlit as st
+import torch, pickle, timm, argparse, streamlit as st
 from transformations import get_tfs  
 from PIL import Image, ImageFont
 from utils import get_state_dict
@@ -77,8 +76,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description = 'Object Classification Demo')
     
     # Add arguments
-    parser.add_argument("-mn", "--model_name", type = str, default = 'rexnet_150', help = "Model name for backbone")
-    parser.add_argument("-cp", "--checkpoint_path", type = str, default = 'saved_models/fruits_best_model_rexnet_150_pl-v2.ckpt', help = "Path to the checkpoint")
+    parser.add_argument("-mn", "--model_name", type = str, default = "rexnet_150", help = "Model name for backbone")
+    parser.add_argument("-cp", "--checkpoint_path", type = str, default = "saved_models/fruits_best_model_rexnet_150_pl-v2.ckpt", help = "Path to the checkpoint")
     
     # Parse the arguments
     args = parser.parse_args() 
