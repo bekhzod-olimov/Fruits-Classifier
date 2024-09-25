@@ -8,13 +8,20 @@ from pytorch_grad_cam.utils.image import show_cam_on_image
 from torchvision import transforms as T
 
 # Initialize inverse transformations
-inv_fn = T.Compose([ T.Normalize(mean = [ 0., 0., 0. ],
-                                                     std = [ 1/0.229, 1/0.224, 1/0.225 ]),
-                                T.Normalize(mean = [ -0.485, -0.456, -0.406 ],
-                                                     std = [ 1., 1., 1. ]),
-                               ])
+inv_fn = T.Compose([ T.Normalize(mean = [ 0., 0., 0. ], std = [ 1/0.229, 1/0.224, 1/0.225 ]),
+                     T.Normalize(mean = [ -0.485, -0.456, -0.406 ], std = [ 1., 1., 1. ])])
 
 def get_state_dict(checkpoint_path):
+
+    """
+
+    This function gets a checkpoint path and returns new state dictionary.
+
+    Parameter:
+
+    checkpoint_path   - path to the pretrained checkpoint, str;
+    
+    """
     
     checkpoint = torch.load(checkpoint_path)
     new_state_dict = OD()
