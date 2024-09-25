@@ -7,6 +7,18 @@ from PIL import Image; from glob import glob
 torch.manual_seed(2023)
 
 class CustomDataset(Dataset):
+
+    """
+
+    This class get several arguments and returns dataset to be trained.
+
+    Parameters:
+
+    root            - path to the data, str;
+    data            - data name, str;
+    transformations - transformations to be applied, torchvision transforms object.
+    
+    """
     
     def __init__(self, root, data, transformations = None):
         
