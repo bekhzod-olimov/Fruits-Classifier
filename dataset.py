@@ -23,9 +23,11 @@ class CustomDataset(Dataset):
     def __init__(self, root, data, transformations = None):
         
         self.transformations = transformations
+        # Get image paths from the given directory
         self.im_paths = [im_path for im_path in sorted(glob(f"{root}/{data}/*/*"))]
         
         self.cls_names, self.cls_counts, count, data_count = {}, {}, 0, 0
+        # Go through every image path and get class names along with class counts
         for idx, im_path in enumerate(self.im_paths):
             class_name = self.get_class(im_path)
             if class_name not in self.cls_names: self.cls_names[class_name] = count; self.cls_counts[class_name] = 1; count += 1
