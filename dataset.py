@@ -40,6 +40,21 @@ class CustomDataset(Dataset):
     def __len__(self): return len(self.im_paths)
 
     def __getitem__(self, idx):
+
+        """
+
+        This function gets index and returns corresponding data pair.
+
+        Parameter:
+
+        idx    - index, int.
+
+        Outputs:
+
+        im     - image, tensor;
+        gt     - ground truth (label), int.
+        
+        """
         
         im_path = self.im_paths[idx]
         im = Image.open(im_path).convert("RGB")
