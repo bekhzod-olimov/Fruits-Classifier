@@ -33,8 +33,10 @@ class CustomDataset(Dataset):
             if class_name not in self.cls_names: self.cls_names[class_name] = count; self.cls_counts[class_name] = 1; count += 1
             else: self.cls_counts[class_name] += 1
         
+    # Function to get class name
     def get_class(self, path): return os.path.dirname(path).split("/")[-1]
     
+    # Function to get number of data
     def __len__(self): return len(self.im_paths)
 
     def __getitem__(self, idx):
