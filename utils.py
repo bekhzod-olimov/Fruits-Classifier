@@ -20,13 +20,20 @@ def get_state_dict(checkpoint_path):
     Parameter:
 
     checkpoint_path   - path to the pretrained checkpoint, str;
+
+    Output:
+
+    new_state_dict    - new state dictionary, dict;
     
     """
-    
+
+    # Load the checkpoint
     checkpoint = torch.load(checkpoint_path)
+    # Initialize a new dictionary
     new_state_dict = OD()
     for k, v in checkpoint["state_dict"].items():
-        name = k.replace("model.", "") # remove `model.`
+        # remove `model.`
+        name = k.replace("model.", "") 
         new_state_dict[name] = v
     return new_state_dict
 
